@@ -1,0 +1,22 @@
+**Differences Between Unity and enterprise .NET**
+- Unity works differently with C#. Enterprise .NET has another pipeline and there is no loop functionality.
+- In Unity there is only one game taking place at a time, where monobehaviour carries state across frames. in .NET the API processes numerous requests per second concurrently.
+
+**Pipelines**
+- CLR (CommonLenguageRuntime) = .NET Runtime
+- IL (Intermediate Lenguage) || CIL (Common Intermediate Lenguage) = CPU-agnostic bytecode && lives inside a .dll file with metadata, describing every type and method.
+- JIT (Just In Time) = happens at runtime. Assemblies are loaded on demand.
+- CPU and platform-agnostic bytecode means a low-level compiled format that is not tied to any specific kind of processor arquitecture. That means that its not executed by hardware but by an intermedary software layer, like a virtual machine.
+- The result of compiling a .cs file is IL, not native machine code. 
+- The CLR or .NET runtime JIT-compiles the IL to native machine code the first time each method is called.The CPU then executes. The next calls come from the cached native version.
+
+**Assemblies**
+- aasembly = .dll file || .exe file
+- Assemblies are deployed to a server, have their own version number and are controlled by project preferences to determined which assemblies communicate with each other nad which don't.
+- While working with numerous specific layers in a project, the .Domain must not reference any other layer to garantee the stability of the site
+
+**Namespaces**
+- Namespace = a logical container for types with no runtime significance. It's used for organisation and collision prevention purposes.
+- It mirrors the folder path.
+
+
