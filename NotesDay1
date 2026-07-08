@@ -19,4 +19,6 @@
 - Namespace = a logical container for types with no runtime significance. It's used for organisation and collision prevention purposes.
 - It mirrors the folder path.
 
+**Value Types vs Reference Types**
+-
 
