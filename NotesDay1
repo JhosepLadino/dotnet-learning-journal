@@ -20,5 +20,47 @@
 - It mirrors the folder path.
 
 ## Value Types vs Reference Types
--
+- Value Types = int, long, float, double, bool, char, byte, decimal, DtaTime, Guid, all structs, all enums.
+- Value types are stored directly where they are declared. When a Value type is assigned, you get an independent copy.
+- Reference Types = all classes, all interfaces, arrays, delegates, strings.
+- Reference Types store a reference (a memory adress) to an object that lives on the manageed heap. That means that there is an abstract object, which can be referenced by more then one variables, making a copys with direct access to the subjective object.
+- Reference Types can be null. <Nullable>enable</Nullable> // in .csproj to use ?, ?. and ??
+
+## Strings
+- Strings is a reference type, but behaves like a value type because is immutable. It is possible only to add more strings to an already existing string and not to modify it.
+
+## Access Modifiers
+- While in Unity one tends to use often and freely public and private, in .NET the access modifiers are treated more as a formal architecture enforcement.
+
+**Modifier - Accessible from**
+public - Anywhere
+private - only within the declaring type
+protected - declaring type and all subclasses
+internal - only within the same assembly
+protected internal - same assembly or any subclassa anywhere
+private protected - same assembly and subclasses only
+
+## Record Types
+- Records give immutability and value equality by default. Properties are init only, can be mutated in an non-destructve way with with. 
+- Two identical command are treated here identically.
+
+## Static
+- static members belong to the type, not to an instance. Are in the memory for the entire application lifetime.
+
+**Why to use it with care?**
+- static field is shared across all possible requests processed by the ASP.NET Core API.
+- static dependencies cannot be mocked in tests.
+- static state breaks dependency injection.
+
+ **when to use it?**
+- for pure utility methods with no state
+- for constants
+
+## var - inference, not dynamic
+- var is a compile-time type inference.
+- The compiler determines the type from the right-hand side at compile time.
+- it is not dynamic.
+- It can be used when the type is obvious from the right side. The explicit type can be used when it carries architectural meaning, when there is a necessity to make the destinction.
+
+
 
